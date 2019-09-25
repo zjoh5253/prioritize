@@ -1,0 +1,63 @@
+/**
+ * @file
+ * Main stylesheet file.
+ */
+
+
+/*****************************************************************************
+ * Main elements
+ ****************************************************************************/
+html {
+  overflow-y: scroll;
+}
+
+a {
+  cursor: pointer;
+}
+
+::selection {
+  background: #555;
+  color: #FFF;
+}
+
+::-moz-selection {
+  background: #555;
+  color: #FFF;
+}
+
+::-webkit-selection {
+  background: #555;
+  color: #FFF;
+}
+
+/* Main elements end */
+
+
+/*****************************************************************************
+ * Various other styles
+ ****************************************************************************/
+
+.card {
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.08);
+}
+
+.custom-form input[type="text"] {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 100%;
+  padding: 20px;
+}
+
+.navbar-custom {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* Various other styles end */

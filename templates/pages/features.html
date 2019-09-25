@@ -1,0 +1,59 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Features{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <h1>Features</h1>
+</div>
+
+<div class="card">
+  <h3>Add a feature</h3>
+  <form class="custom-form" action="{{ url_for('add_feature') }}" method="post">
+    <div class="form-group">
+      <label>Title</label><br />
+      <input type="text" name="title" placeholder="Enter a title .." />
+    </div>
+    <div class="form-group">
+      <label>Description</label><br />
+      <input type="text" name="description" placeholder="Enter a description .." />
+    </div>
+    <div class="form-group">
+      <input class="btn btn-primary" type="submit" />
+    </div>
+  </form>
+</div>
+
+{% if features %}
+{% for feature_id, feature_values in features.items() %}
+<br />
+<div class="card">
+  <div class="row">
+    <div class="col-md-1">
+      <form method="post" action="{{ url_for('upvote', type="feature", id=bug_id) }}">
+        <input class="btn btn-block btn-success" value="upvote" type="submit" />
+      </form>
+      <form method="post" action="{{ url_for('downvote', type="feature", id=bug_id) }}">
+        <input class="btn btn-block btn-warning" value="downvote" type="submit" />
+      </form>
+    </div>
+    <div class="col-md-1">
+      <h2>{{ feature_values['vote'] }}</h2>
+    </div>
+    <div class="col-md-8">
+      <h4>{{ feature_values['title'] }}</h4>
+      <p>{{ feature_values['description'] }}</p>
+    </div>
+    <div class="col-md-1">
+      <a href="{{ url_for('edit', id=feature_id, type="feature") }}">Edit</a>
+    </div>
+    <div class="col-md-1">
+      <form action="{{url_for('remove_feature', id=feature_id)}}" method="post">
+        <input type="submit" class="btn btn-warning" value="Delete" />
+      </form>
+    </div>
+  </div>
+</div>
+<br />
+{% endfor %}
+{% endif %}
+{% endblock %}
